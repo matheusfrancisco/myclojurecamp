@@ -1,13 +1,13 @@
 (ns mycc.common.db
   (:require
-    [clojure.edn :as edn]
-    [clojure.java.io :as java.io]
-    [clojure.string :as string]
-    [bloom.commons.uuid :as uuid]
-    [bloom.commons.thread-safe-io :as io]
+   [clojure.edn :as edn]
+   [clojure.java.io :as java.io]
+   [clojure.string :as string]
+   [bloom.commons.uuid :as uuid]
+   [bloom.commons.thread-safe-io :as io]
     ;; TODO using directly b/c of circular dependency
     ;; parts of this namespace should be moved under modulo anyway
-    [modulo.config :as mod]))
+   [modulo.config :as mod]))
 
 ;; entities, which are maps
 ;; stored as edn files in folder path defined in config.edn
@@ -96,6 +96,7 @@
               :user/pair-next-week? false
               :user/email (normalize-email email)
               :user/name (extract-name-from-email email)
+              :user/created-at (java.util.Date.)
               :user/role :role/student
               :user/max-pair-per-day 1
               :user/max-pair-per-week 1
